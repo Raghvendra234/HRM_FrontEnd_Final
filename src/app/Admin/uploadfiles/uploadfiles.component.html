@@ -1,0 +1,61 @@
+
+
+
+
+  
+  <!-- <label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)" />
+  </label>
+  
+  <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
+    Upload
+  </button>
+   -->
+  <!-- <div class="alert alert-light" role="alert">{{ message }}</div>
+  
+  <div class="card">
+    <div class="card-header">List of Files</div>
+    <ul
+      class="list-group list-group-flush"
+      *ngFor="let file of fileInfos | async"
+    >
+      <li class="list-group-item">
+        <a href="{{ file.url }}">{{ file.name }}</a>
+      </li>
+    </ul>
+  </div> -->
+
+
+  
+  <!-- <form (ngSubmit)="uploadImage()">
+    <input ng-model="file_upload" name="file" type="file" (change)="onFileSelected($event)" #fileInput>
+    <button type="submit">Submit</button>
+</form> -->
+
+
+<h5 style="margin-top: 150px;"> This is only for testing purpose</h5>
+<h4 style="margin-top: 50px;">this is a uploadfiles page</h4>
+
+<div class="container row">
+  <div class="col-md-3">
+           <input type="file"  name="filePath" (change)="selectFile($event)">
+  </div>
+
+  <div class="col-md-3">
+       <input type="button" (click)="upload()" value="Uploads">
+  </div>
+</div>
+
+
+
+
+<div class="container row mt-3">
+  <div class="col-md-6">
+      <input type="text" class="form-control" id="name" placeholder="image name" name="name" />
+  </div>
+  <div class="col-md-6">
+      <input type="button" (click)="getImage()" value="Get Image">
+
+  </div>
+
+</div>

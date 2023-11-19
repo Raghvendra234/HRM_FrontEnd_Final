@@ -1,0 +1,202 @@
+     <!-- <section class="vh-100 gradient-custom"  style="background-color:powderblue; margin-top: 56px;">
+      <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col-12 col-lg-9 col-xl-7">
+            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+              <div class="card-body p-4 p-md-5">
+                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="padding-left: 180px;">Update Leave</h3>
+                <form name="myform" class="form-group">
+                  
+                  
+
+
+               <div class="row">
+                    
+                
+                    <div class="col-md-6 mt-3">
+                        <label  for="inputname">Employee</label>
+                        <select    (click)=" getEmployeeById(leaveEmployee.employee.employeeId)" [(ngModel)]="leaveEmployee.employeeId"
+                                                                         name="employeeId" class="form-select" id="validationDefault04" required>
+                     <option>Select One</option>
+                     <option>
+                      {{leaveEmployee.employee.firstName}} ({{leaveEmployee.employee.emailId}})
+                       </option>
+                      </select>
+                     </div>  
+
+
+
+                     
+                     <div class="col-md-6 mt-3">
+                      <label  for="inputname">Types_of_leave</label>
+                      <select  [(ngModel)]="leaveEmployee.typesOfLeave"  name="typesOfLeave" class="form-select" id="validationDefault04" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>CasualLeave</option>
+                        <option>SickLeave</option>
+                        <option>MarriageLeave</option>
+                        <option>MaternityLeave</option>
+                        <option>PaternityLeave</option>
+                        <option>BereavementLeave</option>
+                        <option>EarnedLeave</option>
+                       </select>
+                          
+                        </div>
+                    </div>
+
+
+
+
+                  <div class="row jumbotron">
+            
+                  
+                        <div class="col-md-6 mt-4">
+                           <label  for="inputname">From Date</label>
+                            <input type="date" [(ngModel)]="leaveEmployee.fromDate"  name="fromDate" class="form-control" placeholder="">
+                         </div> 
+                      
+                          <div class="col-md-6 mt-4">
+                                <label  for="inputname">To Date</label>
+                                <input type="date" [(ngModel)]="leaveEmployee.toDate" name="toDate" class="form-control" placeholder="">
+                           </div>             
+               
+                      </div>
+
+
+            
+                                        
+                      <div class="row">
+                        <div class="col-md-12 mt-3">
+                         <label  for="inputname">Reason fro Leave</label>
+                          <textarea [(ngModel)]="leaveEmployee.reasonToLeave" name="reasonToLeave" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      </div>    
+                     </div> 
+
+
+                      <div class="row"> 
+                            <div class="col-md-4 mt-5" style="text-align: center;">
+                             <button type="Submit" class="btn btn-primary" (click)="formSubmit()">Update</button> 
+                         </div>       
+               
+
+                          <div class="col-md-4 mt-5" style="text-align: center;">
+                          <button type="reset" class="btn btn-danger">Cancel</button>
+                         </div>
+                           
+                     </div>
+               
+              
+              
+              
+              
+              
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+
+
+
+
+
+    
+    <div class="card  bg_sol" style="margin-left: 200px;margin-top: 60px;" >
+      <!-- <div style="margin-left: 920px; margin-bottom: 10px;"> 
+        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success" 
+        style="color:black; background-color: rgb(220, 209, 231);" 
+     -(click)="openPopup()"> Show Leave</button> 
+      </div> -->
+   <form class="form">
+     <h3 style="text-align: center;">Update Leave</h3>
+         <div class="row">
+     
+       <div class="col-sm-12 col-md-6">
+         <label >
+           <input type="date" [(ngModel)]="leaveEmployee.fromDate"  name="fromDate" class="input" placeholder="">
+        <span>Starting Date</span>
+        </label>
+     
+       </div>
+       <div class="col-sm-12 col-md-6">
+         <label >
+               
+           <input type="date" [(ngModel)]="leaveEmployee.toDate" name="toDate" class="input" placeholder="">
+           <span>Ending Date</span>
+         </label>
+
+       </div>
+     </div>
+       
+       
+
+   <div class="row">
+ 
+     
+     <div class="col-sm-12 col-md-6">
+      <label>
+      <select    [(ngModel)]="leaveEmployee.employeeId"  (click)=" getEmployeeById(leaveEmployee.employee.employeeId)"
+                                                       name="employeeId" class="input" id="validationDefault04" required>
+   <option>Select One</option>
+   <option [value]="employee.employeeId">
+    {{leaveEmployee.employee.firstName}} ({{leaveEmployee.employee.emailId}})
+     </option>
+    </select>
+    <span>Employee</span>
+    </label>
+   </div>  
+
+
+
+     <div class="col-sm-12 col-md-6">
+   
+       <label >
+
+         <select  [(ngModel)]="leaveEmployee.typesOfLeave"  name="typesOfLeave" class="input" id="validationDefault04" required>
+           <option selected disabled value="">Choose...</option>
+           <option>CasualLeave</option>
+           <option>SickLeave</option>
+           <option>MarriageLeave</option>
+           <option>MaternityLeave</option>
+           <option>PaternityLeave</option>
+           <!-- <option>BereavementLeave</option> -->
+           <option>EarnedLeave</option>
+          </select>
+          <span>Types of leave</span>
+          </label>
+             
+     </div>
+ 
+    
+ 
+   
+  </div>
+
+  <div class="row">
+   <div class="col-12">
+     <label >
+      <label  for="inputname"></label>
+       <textarea [(ngModel)]="leaveEmployee.reasonToLeave" name="reasonToLeave" class="input" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <span>Reason to Leave</span>
+     </label>  
+   </div>
+ </div> 
+
+                 
+
+
+       
+       
+       <button class="button" type="submit"  (click)="formSubmit()">
+           <span>Update</span>
+         </button>
+         <button class="button can" type="reset" >
+           <span>Cancel</span>
+         </button>
+         
+     
+   </form>
+ </div>

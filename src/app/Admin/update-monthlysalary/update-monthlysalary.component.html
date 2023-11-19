@@ -1,0 +1,246 @@
+
+
+ 
+<div class="card  bg_sol" style="margin-left: 200px;margin-top: 60px;" >
+    <form class="form">
+      <h3 style="text-align: center;">Update Salary Monthly</h3>
+
+
+      <div class="row">
+      
+         <div class="col-sm-12 col-md-4">
+          
+            <label >
+              <select  [(ngModel)]="monthlyWiseSalary.month"  name="month"  class="input" id="validationDefault04" disabled required>
+                <option selected disabled value="-1">Select Months..</option>
+               
+                <option>January </option>
+                <option>February </option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+                </select>
+                <span style="margin-top: 20px;">Months</span>
+            </label>
+          </div>
+  
+  
+  
+          <div class="col-sm-12 col-md-4">
+          
+            <label >
+              <select  [(ngModel)]="monthlyWiseSalary.years"  name="years"  class="input" id="validationDefault04"  required>
+                <option selected disabled value="-1">Select Months..</option>
+               
+                <option>2020</option>
+                <option>2021 </option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+                <option>2027</option>
+                <option>2028</option>
+                <option>2029</option>
+                <option>2030</option>
+                <option>2031</option>
+                <option>2032</option>
+                <option>2033</option>
+                <option>2034</option>
+                <option>2035</option>
+                </select>
+                <span >Years</span>
+            </label>
+          </div>
+  
+  
+
+
+
+        <div class="col-sm-12 col-md-4">
+          <label>
+            <!-- {{monthlyWiseSalary.employee.employeeId|json}} -->
+          <select    [(ngModel)]="monthlyWiseSalary.employeeId" name="employeeId" class="input" id="validationDefault04" required>
+            <option>Select</option>
+            <option>
+             {{monthlyWiseSalary.employee.firstName}}({{monthlyWiseSalary.employee.emailId}})
+            </option>
+            <span>Employee</span>
+          </select>
+         </label>
+        </div> 
+         
+       </div>
+  
+       <div class="row">
+  
+        <div class="col-sm-12 col-md-4">
+          <label >
+            <input type="text" [(ngModel)]="monthlyWiseSalary.uanNumber" name="uanNumber"  class="input"  required>
+            <span>UAN No.</span>
+          </label>
+        </div>
+  
+  
+  
+        <div class="col-sm-12 col-md-4">
+          <label >
+           <input type="number" [(ngModel)]="monthlyWiseSalary.esiCode" name="esiCode" class="input" required>
+           <span>ESI Number</span>
+          </label>
+        </div>
+  
+        <div class="col-sm-12 col-md-4">
+          <label>
+            <input type="text" [(ngModel)]="monthlyWiseSalary.basicSalary" name="basicSalary" class="input"  required>
+            <span>Basic Salary</span>
+            </label>
+        </div>
+  
+     </div>
+        
+        
+  
+  
+    <div class="row">
+  
+        <div class="col-sm-12 col-md-4">
+          <label >
+          <input type="number" [(ngModel)]="monthlyWiseSalary.houseRentAllowance"  name="houseRentAllowance"  class="input"  required>
+           <span>House Rent Allowance</span>
+           </label>
+        </div>
+  
+        
+        <div class="col-sm-12 col-md-4">
+          <label >
+            <input type="number" [(ngModel)]="monthlyWiseSalary.dearnessAllowance"  name="dearnessAllowance"  class="input"  required>
+           <span>Dearness Allowance</span>
+           </label>
+        </div>
+  
+        <div class="col-sm-12 col-md-4">
+          <label>
+            <input type="number" [(ngModel)]="monthlyWiseSalary.grossSalary"  name="grossSalary"  class="input"  required>
+            <span>Gross Salary</span>
+            </label>
+        </div>
+    
+      </div>
+     
+  
+      <div class="row">
+   
+        <div class="col-sm-12 col-md-4">
+            <label >
+              <input type="number" [(ngModel)]="monthlyWiseSalary.pf"  name="pf" class="input"  required>
+             <span>Provident Fund(%)</span>
+             </label>
+          </div>
+    
+          
+          <div class="col-sm-12 col-md-4">
+            <label >
+                <input type="number" [(ngModel)]="monthlyWiseSalary.esi" name="esi" class="input" required>
+             <span>E.S.I(%)</span>
+             </label>
+          </div>
+  
+          <div class="col-sm-12 col-md-4">
+            <label>
+              <input type="number" [(ngModel)]="monthlyWiseSalary.medicalInsurance"  name="medicalInsurance"  class="input"  required>
+              <span>Health Insurance</span>
+              </label>
+          </div>
+      
+        </div>
+  
+  
+  
+        <div class="row">
+  
+            <div class="col-sm-12 col-md-4">
+              <label >
+                <input type="number" [(ngModel)]="monthlyWiseSalary.childrenEducationAllowance"  name="childrenEducationAllowance"  class="input"  required>
+               <span>ChildrenEducationAllowance</span>
+               </label>
+            </div>
+      
+            
+            <div class="col-sm-12 col-md-4">
+              <label >
+                <input type="number" [(ngModel)]="monthlyWiseSalary.splAllowance"  name="splAllowance"  class="input"  required>
+               <span>SPL Allowance</span>
+               </label>
+            </div>
+        
+            <div class="col-sm-12 col-md-4">
+              <label>
+                <input type="number" [(ngModel)]="monthlyWiseSalary.incentives"  name="incentives" class="input"  required>
+                <span>Incentives</span>
+                </label>
+            </div>
+  
+          </div>
+  
+  
+  
+  
+          <div class="row">
+  
+              
+            <div class="col-sm-12 col-md-4">
+                <label >
+                  <input type="number" [(ngModel)]="monthlyWiseSalary.groupInsurance"  name="groupInsurance"  class="input"  required>
+                 <span>Group Insurance</span>
+                 </label>
+              </div>
+        
+              
+              <div class="col-sm-12 col-md-4">
+                <label >
+                  <input type="number" [(ngModel)]="monthlyWiseSalary.taxDeductedAtSources"  name="taxDeductedAtSources"  class="input"  required>
+                 <span>TaxDeductedAtSources</span>
+                 </label>
+              </div>
+          
+  
+              <div class="col-sm-12 col-md-4">
+                <label>
+                  <input type="number" [(ngModel)]="monthlyWiseSalary.workedDays"  name="taxDeductedAtSources"  class="input"  required>
+                  <span>Days Worked</span>
+                  </label>
+                 </div>
+            </div>
+  
+                
+  
+  
+        
+        <div class="btn-group">
+          <button class="button" type="submit"  (click)="formSubmit()">
+              <span>Submit</span>
+            </button>
+            <button class="button can" type="reset" >
+              <span>Cancel</span>
+            </button>
+            <button class="button can" type="reset" >
+              <span>reset</span>
+            </button>
+        </div>
+          
+      
+    </form>
+  </div>
+  
+  
+  
+  
+  

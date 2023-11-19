@@ -1,0 +1,30 @@
+<div class="card  bg_sol">
+  <form class="form">
+      <div class="flex">
+          <label>
+            <input type="date" [(ngModel)]="leaveEmployee.fromDate"  name="fromDate" class="input" placeholder="">
+              <span>Starting Date</span>
+          </label>
+          <label>
+              <input required="" placeholder="" type="text" class="input">
+              <span>last name</span>
+          </label>
+      </div>
+      <label>
+          <input required="" placeholder="" type="email" class="input">
+          <span>email</span>
+      </label>
+      <label>
+          <input required="" type="tel" placeholder="" class="input">
+          <span>contact number</span>
+      </label>
+      <label>
+        <textarea [(ngModel)]="leaveEmployee.reasonToLeave" name="reasonToLeave" class="input01" rows="3"></textarea>
+          <span>Reason for Leave </span>
+      </label>
+      <button class="button" type="submit">
+          <span>Submit</span>
+        </button>
+  </form>
+</div>
+

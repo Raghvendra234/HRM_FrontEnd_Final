@@ -1,0 +1,406 @@
+
+<!-- 
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: #ebeae8; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+       
+           <div class="card-body">
+             <h5 class="card-title"></h5>
+             <div class="card-core">
+
+<section class="vh-100 gradient-custom"  style="margin-top: 56px;">
+<div class="container py-5 h-100">
+<div class="row justify-content-center align-items-center h-100">
+<div class="col-12 col-lg-9 col-xl-7">
+ <div class="card shadow-2-strong card-registration" style="border-radius: 15px; width: 850px; margin-left: -100px;" >
+<div class="container; container py-5 h-100;" style="width: 750px;">
+<h2 style="text-align: center;" class="mt-2"> Add Projects Here</h2>
+
+<form name="myform" class="needs-validation" [formGroup]="projectForm" (ngSubmit)="formSubmit()">
+
+
+ <div class="row jumbotron">
+ 
+     <div class="col-md-6 mt-4">
+     <label  for="inputname">Project Name<b style="color: red;">*</b></label>
+     <input type="text" formControlName="projectName"  name="projectName" class="form-control"  required>
+     </div> 
+           
+           <div class="col-md-6 mt-4">
+           <label  for="inputname">Client Name <b style="color: red;">*</b></label>
+           <input type="text" formControlName="clientName" name="clientName" class="form-control"  required>
+           </div> 
+
+         </div>
+         
+         
+         <div class="row">
+           <div class="col-md-6 mt-4" style="width:50%">
+             <label  for="inputname">Technologies<b style="color: red;">*</b></label>
+              <ng-multiselect-dropdown
+                 [settings]="dropdownSettingsTech"
+                 [data]="dropdownListTech" 
+                 formControlName="technology">
+             </ng-multiselect-dropdown> 
+           </div> 
+
+
+           <div class="col-md-6 mt-3" style="width:50%">
+           <label  for="inputname">Databases <b style="color: red;">*</b></label>            
+              <ng-multiselect-dropdown
+                  [settings]="dropdownSettingsDatabase"
+                  [data]="dropdownListDatabase"
+                  formControlName="databaseTech">
+           </ng-multiselect-dropdown>    
+          </div>
+          </div>
+          
+          
+                
+         <div class="row">
+           <div class="col-md-6 mt-3">
+           <label  for="inputname">Starting Date<b style="color: red;">*</b></label>
+           <input type="date" formControlName="fromDate"  name="fromDate"  class="form-control"  required>
+           </div>     
+ 
+
+           <div class="col-md-6 mt-3">
+           <label  for="inputname">Ending Date<b style="color: red;">*</b></label>
+           <input type="date" formControlName="toDate" name="toDate" class="form-control"  required>
+           </div>
+         </div>
+
+           
+         <div class="row">  
+             <div class="col-md-6 mt-3">
+               <label for="inputname">Project Manager<b style="color: red;">*</b></label>
+               <input type="text" formControlName="projectManager" name="projectManager" class="form-control" placeholder="" required>
+             </div>
+
+
+             <div class="col-md-6 mt-4">
+               <label  for="validationDefault04" class="form-label">Team Leader<b style="color: red;">*</b></label>
+               <select  formControlName="teamLeader" name="teamLeader"  class="form-select" placeholder="Team-Leader" required>
+               <option>Select One</option>
+               <option  *ngFor="let data of teamLeaders" [value]="data.teamLeader">
+                 {{data.teamLeader}} 
+               </select>
+               </div>   
+          </div>
+
+
+    <div class="row">
+       <div class="col-md-6 mt-4">
+             <label for="validationDefault04" class="form-label">Employee Name<b style="color: red;">*</b></label>
+             <select   formControlName="employeeId" name="employeeId" class="form-select" id="validationDefault04" required>
+             <option>Select One</option>
+             <option  *ngFor="let data of employeeData" [value]="data.employeeId">
+                {{data.firstName}} ({{data.emailId}}) 
+             </option>
+            </select>
+         </div>  
+       </div>  
+       
+             
+      <div class="container">  
+               <table class="table table-bordered" formArrayName="quantities">               
+            <tr>
+               <th>Employee Name</th>
+               <th>Technologies</th>
+               <th>Remark</th>
+               <th width="150px">
+                 <button type="button" (click)="addMoreEmployee()" class="btn btn-primary"
+                  style="color: white; background-color: blue;">+Add</button></th>
+             </tr>
+             <br>
+             <tr>
+               <td>  
+                 <select   formControlName="employeeId" name="employeeId" class="form-select" id="validationDefault04" required>
+                   <option>Select One</option>
+                   <option  *ngFor="let data of employeeData" [value]="data.employeeId" formControlName="employeeId">
+                     {{data.firstName}} ({{data.emailId}})
+                   </option>
+                  </select>
+               </td>  
+
+               
+               <td>  
+                 <select  name="" formControlName="technologies" class="form-select" id="validationDefault04" required>
+                   <option selected disabled value="">Choose...</option>
+                   <option>Frontend</option>
+                   <option>Backend</option>
+                   <option>FullStack</option>
+                   <option>Others</option>
+                  </select>
+               </td>
+             
+               <td>  
+                   <input type="text" formControlName="remark" class="form-control">  
+               </td>
+             <br>
+           </tr>
+
+           <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">  
+
+               <td>  
+                 <select   formControlName="employeeId" name="employeeId" class="form-select" id="validationDefault04" required>
+                   <option>Select One</option>
+                   <option  *ngFor="let data of employeeData" [value]="data.employeeId" formControlName="employeeId">
+                     {{data.firstName}} ({{data.emailId}})
+                   </option>
+                  </select>
+               </td>  
+               
+               <td>  
+                 <select  name="" formControlName="technologies" class="form-select" id="validationDefault04" required>
+                   <option selected disabled value="">Choose...</option>
+                   <option>Frontend</option>
+                   <option>Backend</option>
+                   <option>FullStack</option>
+                   <option>Others</option>
+                  </select>
+               </td>  
+               
+               <td>  
+                   <input type="text" formControlName="remark" class="form-control">  
+               </td> 
+            
+               <td>  
+                    <button (click)="removeEmployee(i)" class="btn btn-danger" style="background-color: brown;">Remove</button>   
+               </td>  
+               <br>
+             </tr>  
+          </table>  
+    
+        <br/>  
+      </div>  
+
+
+
+  <div class="row">
+       <div class="col-md-3 mt-3" style="text-align: center;">
+          <button type="Submit" class="btn btn-primary" >Submit</button>
+         </div>
+       <div class="col-md-3 mt-3" style="text-align: center;">
+           <button type="reset" class="btn btn-danger"  >Cancel</button>
+         </div>
+      </div>
+     </form>
+  </div>
+
+ 
+ </div>
+</div>
+</div>
+</div>
+</section>
+  
+</div>
+</div>
+</div>
+</div>    -->
+
+
+
+
+
+
+
+
+ 
+<div class="card  bg_sol" style="margin-left: 200px;margin-top: 60px;" >
+  <form class="form"  [formGroup]="projectForm" (ngSubmit)="formSubmit()">
+    <h3 style="text-align: center;">Add Projects</h3>
+    <div class="row">
+    
+      <div class="col-sm-12 col-md-4">
+          <label >
+            <input type="text" formControlName="projectName"  name="projectName" class="input"  required>
+           <span>Project Name</span>
+         </label>
+       </div>
+       
+
+      <div class="col-sm-12 col-md-4">
+        <label >
+          <input type="text" formControlName="clientName"  name="clientName" class="input"  required>
+         <span>Client Name</span>
+       </label>
+      </div>
+
+
+
+      <div class="col-sm-12 col-md-4">
+        <label >
+          <input type="text" formControlName="projectManager" name="projectManager" class="input" placeholder="" required>
+        <span>Project Manager</span>
+       </label>
+      </div>
+
+   </div>
+      
+      
+
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-4">
+      <label >
+        <input type="date" formControlName="fromDate"  name="fromDate"  class="input"  required>
+        <span style="margin-top: 13px;">Starting Date</span>
+      </label>
+    </div>
+
+
+    <div class="col-sm-12 col-md-4">
+      <label >
+        <input type="date" formControlName="toDate" name="toDate" class="input"  required>
+        <span style="margin-top: 13px;">Ending Date</span>
+      </label>
+      </div>
+
+      
+      <div class="col-sm-12 col-md-4">
+        <label>
+          <select  formControlName="teamLeader" name="teamLeader"  class="input" placeholder="Team-Leader" required>
+         <option>Select One</option>
+         <option  *ngFor="let data of teamLeaders" [value]="data.teamLeader">
+           {{data.teamLeader}} 
+         </select>
+         <span>Team Leader</span>
+         </label>
+      </div>
+  
+    </div>
+   
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-6">
+        <label  for="inputname">
+          <span>Technologies</span>
+          <ng-multiselect-dropdown
+         [settings]="dropdownSettingsTech"
+         [data]="dropdownListTech" 
+         formControlName="technology">
+        </ng-multiselect-dropdown> 
+        
+      </label>
+      </div>
+  
+  
+      <div class="col-sm-12 col-md-6">
+        <label  for="inputname">
+          <span>Databases</span>
+          <ng-multiselect-dropdown
+          [settings]="dropdownSettingsDatabase"
+          [data]="dropdownListDatabase"
+          formControlName="databaseTech">
+          </ng-multiselect-dropdown>    
+          
+        </label>
+        </div>
+  
+            
+        </div>
+
+
+
+       
+        <div class="container">  
+          <table class="table table-bordered" formArrayName="quantities">               
+       <tr>
+          <th>Employee Name</th>
+          <th>Technologies</th>
+          <th style="margin-left: 5px;">Remark</th>
+          <th width="150px">
+            <button type="button" (click)="addMoreEmployee()" class="btn btn-primary"
+             style="color: white; background-color: blue;">+Add Employee</button></th>
+        </tr>
+        <br>
+        
+
+<!--         
+        <tr>
+          <td>  
+            <select   formControlName="employeeId" name="employeeId" class="form-select" id="validationDefault04" required>
+              <option>Select One</option>
+              <option  *ngFor="let data of employeeData" [value]="data.employeeId" formControlName="employeeId">
+                {{data.firstName}} ({{data.emailId}})
+              </option>
+             </select>
+          </td>  
+          
+          <td>  
+            <select  name="" formControlName="technologies" class="form-select" id="validationDefault04" required>
+              <option selected disabled value="">Choose...</option>
+              <option>Frontend</option>
+              <option>Backend</option>
+              <option>FullStack</option>
+              <option>Others</option>
+             </select>
+          </td>
+        
+          <td>  
+              <input type="text" formControlName="remark" class="form-control">  
+          </td>
+        <br>
+      </tr> -->
+
+
+
+      <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">  
+
+          <td>  
+            <select   formControlName="employeeId" name="employeeId" class="form-select" id="validationDefault04" required  style="margin-top: 15px;">
+              <option>Select One</option>
+              <option  *ngFor="let data of employeeData" [value]="data.employeeId" formControlName="employeeId">
+                {{data.firstName}} ({{data.emailId}})
+              </option>
+             </select>
+          </td>  
+          
+          <td>  
+            <select  name="" formControlName="technologies" class="form-select" id="validationDefault04" required style="margin-top: 15px; margin-left: 10px;">
+              <option selected disabled value="">Choose...</option>
+              <option>Frontend</option>
+              <option>Backend</option>
+              <option>FullStack</option>
+              <option>Others</option>
+             </select>
+          </td>  
+          
+          <td>  
+              <input type="text" formControlName="remark" class="form-control" style="margin-top: 15px; margin-left: 20px;">  
+          </td> 
+       
+          <td>  
+               <button (click)="removeEmployee(i)" class="btn btn-danger" style="color: white; background-color: red; margin-left: 30px;" ><i class="fa fa-trash" style="width: 25px"></i></button>   
+          </td>  
+          <br>
+        </tr>  
+     </table>  
+
+   <br/>  
+ </div>  
+
+
+
+
+          
+ 
+
+    <div class="btn-group">
+      <button class="button" type="submit" >
+          <span>Submit</span>
+        </button>
+        <button class="button can" type="reset" >
+          <span>Reset</span>
+        </button>
+        
+    </div>
+
+  </form>
+</div>
+
+
+

@@ -1,0 +1,11 @@
+.container-fluid mt-3
+{
+    text-align: center;
+}
+#body{
+    background-image:url(/assets/Hook1.png) ;
+    background-repeat: no-repeat;
+     background-size: 100% 700px;
+    width: 1800px;
+    height: 1800px;
+}

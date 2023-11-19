@@ -1,0 +1,201 @@
+
+
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: #ebeae8; height: 100%; overflow-y: auto; overflow-x: hidden; height: 100%;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+         
+          <div class="row" >
+
+            <div class="col-4">
+              <label>Type of Leave</label>
+            <input mdbInput type="search" class="form-control"  placeholder="Search....."   name="clientName" #typesOfLeave/>
+            </div>
+         
+            <div class="col-3">
+              <label>Starting Date</label>
+            <input mdbInput type="date" class="form-control"  placeholder="Search....."  name="projectName" #fromDate/>
+             </div>
+             
+            <div class="col-3">
+              <label>Ending Date</label>
+            <input mdbInput type="date" class="form-control"  placeholder="Search....."   name="clientName" #toDate/>
+            </div>
+            
+          
+            </div>
+      
+            <div class="row">
+              <div class="col-6 mt-3">
+                <button type="Submit" class="btn btn-info" style="margin-left: 400px; height: 35px;" (click)=" searchFilter(typesOfLeave.value,fromDate.value,toDate.value)">Search</button>
+               </div>
+        
+               <div class="col-6 mt-3">
+                <button type="reset" class="btn btn-danger" style="margin-right: 250px; height: 35px">reset</button>
+               </div>
+            </div>
+      
+      
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 30px; width: 1120px;">
+  <div class="card  mb-3" style="max-width: 80rem;background-color:white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+
+
+
+
+
+<nav class="navbar" style="margin-top: 25px; background-color: rgb(34, 38, 65);height: 44px;margin-left:00px">
+  <div class="container-fluid">
+   <h5 style="color: aliceblue;">All Leave Request</h5>
+     <div class="d.flex">
+    
+      <!-- <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success" style="color:black; background-color: rgb(220, 209, 231);">
+       <a [routerLink]="['../leavereport']" class="nav-link">Leave_Report</a> </button> -->
+      
+     </div>  
+   </div>
+</nav>
+
+
+<table class="table mt table-bordered"style="margin-left: 0%;width: 100%;">
+<thead>
+   <tr>
+       <th scope="col">#</th>
+       <th scope="col">Employee Name</th>
+       <th scope="col">Email_Id</th>
+       <th scope="col">FromDate</th>
+       <th scope="col">ToDate</th>
+       <th scope="col">Reason To Leave</th>
+       <th scope="col">Type Of Leave</th>
+       <th scope="col">Edit</th>
+       <th scope="col">Delete</th>
+       
+   </tr>
+   
+</thead>
+<tbody>
+
+   <tr *ngFor="let leave of leaveEmployees; let i=index">
+       <td>{{pageObject.size*pageObject.page+(i+1)}}</td>
+       <td>{{leave.employee.firstName}}</td> 
+       <td>{{leave.employee.emailId}}</td>
+       <td>{{leave.fromDate}}</td>
+       <td>{{leave.toDate}}</td>
+       <td>{{leave.reasonToLeave}}</td>
+       <td>{{leave.typesOfLeave}}</td>
+            
+       <td>
+       <button class="btn btn-success"   (click) = "updateLeave(leave.leaveId)">
+         <a routerLink="admin/leavelist/{{leave.leaveId}}" style="color: white;"><i class="fa fa-edit"></i></a></button>
+       </td>
+       <td>
+       <button class="btn btn-danger" (click)="deleteLeave(leave.leaveId)" style="color: white; background-color: red;"><i class="fa fa-trash"></i></button>
+       </td>     
+
+     </tr>
+</tbody>
+</table>
+
+<button type="button"   (click)= "myFuction('prev',pageObject.page)"    style="background-color: rgb(189, 189, 228); border-radius: 15px; margin-left: 30px; margin-top: 15px;"><</button>
+<button type="button"   (click)= "myFuction('next',pageObject.page)"    style="background-color:rgb(189, 189, 228); border-radius: 15px; margin-left: 10px;">></button> 
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="modal" tabindex="-1" id="myModel">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title">Modal title</h5>
+       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+     </div>
+     <div class="modal-body">
+       <p>Modal body text goes here.</p>
+     </div>
+     <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <button type="button" class="btn btn-primary">Save changes</button>
+     </div>
+   </div>
+ </div>
+</div> -->
+
+
+
+
+

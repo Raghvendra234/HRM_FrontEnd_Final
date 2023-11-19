@@ -1,0 +1,7 @@
+
+<router-outlet></router-outlet>
+<lib-ng-toast></lib-ng-toast>
+
+<div *ngIf="message" [ngClass]="message.cssClass">
+    {{message.text}} {{ alert.timer$ | async | time }}
+  </div>

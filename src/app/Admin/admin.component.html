@@ -1,0 +1,173 @@
+  
+<nav class="navbar navbar-expand-sm  fixed-top" style="background-color: rgb(238, 225, 252);   margin-top:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      0px;">
+  <h3 style="color: aliceblue;" ><img src="../assets/pratikshat.png" width="80px" style="color:rgb(2, 0, 128);"></h3>
+  
+    <a  class="navbar-brand" style="color:green;">HR Managements</a>
+      <ul class="navbar-nav ms-auto">
+        
+        <!-- <li class="nav-item" style="cursor: pointer;"><a  *ngIf="loggedIn" [routerLink]="['home']" class="nav-link">Home</a></li> -->
+        <!-- <li class="nav-item" style="cursor: pointer;" *ngIf="roleHR||roleADMIN"><a   [routerLink]="['employeelist']" class="nav-link">Employee</a></li>
+        <li class="nav-item" style="cursor: pointer;" *ngIf="roleHR||roleADMIN"><a   [routerLink]="['projectlist']" class="nav-link">Projects </a></li>
+        <li class="nav-item" style="cursor: pointer;" *ngIf="roleHR||roleADMIN"><a   [routerLink]="['salarylist']" class="nav-link">Salary </a></li>
+        <li class="nav-item" style="cursor: pointer;" *ngIf="roleHR||roleADMIN"><a   [routerLink]="['leavelist']" class="nav-link">Leave</a></li>
+        <li class="nav-item" style="cursor: pointer;" *ngIf="roleEmployee"><a   [routerLink]="['admin/leavereport']" class="nav-link">Leave</a></li>
+       
+       
+        <li class="nav-item" style="cursor: pointer;" *ngIf="roleHR||roleADMIN"><a   [routerLink]="['projectdetailspage']" class="nav-link">Project Details</a></li>
+        <li class="nav-item"  style="cursor: pointer;color: black;"><a *ngIf="roleHR||roleADMIN" [routerLink]="['dashboard']" class="nav-link">Dashboard</a></li> -->
+        <li class="nav-item" style="cursor: pointer;"><a  *ngIf="!loggedIn" class="nav-link">Login</a></li>
+        <!-- <li class="nav-item" style="cursor: pointer;"><a  *ngIf="loggedIn&&isNavActive" (click)="logOutUser()" class="nav-link">
+          <i  aria-hidden="true"></i>Logout</a></li> -->
+
+
+     
+
+      </ul>
+  </nav>
+
+  
+  <div class="mid">
+  <!-- <img src="/assets/pic6.jpg" alt=""> -->
+  </div>
+  
+  
+
+
+   <div class="sidebar">
+
+  
+  <div  class="offcanvas offcanvas-start" id="demo" style="width: 16%;">
+
+    <div  width=16% class="offcanvas-header">
+      <h4 class="offcanvas-title">HR M</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body" >
+      <p><i  class="fa fa-home" aria-hidden="true"></i><b><font [size]="3"> Home</font></b></p>
+      <p><a  routerLink="/employeelist" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i><font [size]="4"></font><b> Employee</b></a></p>
+      <p><a routerLink="/projectlist" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i><font [size]="3"></font><b> Projects</b></a></p>
+      <p><a routerLink="/salarylist" class="nav-link"><i class="fa fa-money" aria-hidden="true"></i><font [size]="3"></font><b> Salary</b></a></p>
+      <p><a routerLink="/leavelist" class="nav-link"><i class="fa fa-file-text" aria-hidden="true"></i><font [size]="3"></font><b> Leave</b></a></p>
+      <p><a routerLink="/leavelist" class="nav-link"></a><i class="fa fa-lock" aria-hidden="true"></i><font [size]="3"><b> Log Out</b></font></p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+  
+   <div class="sidebar" >
+
+    <a class="active" [routerLink]="['dashboard']" ><i class="fa fa-bars" aria-hidden="true" ></i><b> Dashboard</b></a>
+
+
+    <ul class="nav-links c_ul ps-0 mb-0">
+      <li class="li m-0"  (click)="openDrop($event)">
+      <div class="iocn-link">
+        <a routerLink="/employeelist" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i><font [size]="4"></font><b> Employee </b>
+              <i>
+                  
+              </i> 
+               <span class="link_name" style="margin-left: 3.2rem;">+
+                
+              </span>
+          </a>
+           <i class='bx bxs-chevron-down'></i> 
+      </div>
+      <ul class="sub-menu mb-0">
+          <li class="m-0"><a class="link_name"  href="#">Category</a></li>
+          <div class="">
+          <a  [routerLink]="['employeelist']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>All Employees
+          </a>
+          <a [routerLink]="['registration']" class="nav-link ps-4"  *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>Add Employee
+          </a>
+
+          <a [routerLink]="['singleemplpyeedetails']" class="nav-link ps-4"  *ngIf="roleEmployee"><font [size]="4"></font>Employee Details
+          </a>
+       
+        </div>
+      </ul>
+  </li></ul>
+  <ul class="nav-links c_ul ps-0 mb-0">
+    <li class="li m-0"  (click)="openDrop($event)">
+    <div class="iocn-link">
+      <a routerLink="/projectlist" class="nav-link"><i class="fa fa-book" aria-hidden="true"></i><font [size]="4"></font><b> Projects </b>
+            <i>
+                
+            </i>
+            <span class="link_name" style="margin-left: 3.6rem;">+
+              
+            </span>
+        </a>
+        <i class='bx bxs-chevron-down '></i>
+    </div>
+    <ul class="sub-menu mb-0">
+        <li class="m-0"><a class="link_name"  href="#">Category</a></li>
+        <div class="">
+        <a  [routerLink]="['projectlist']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>All Projects
+        </a>
+        <a [routerLink]="['addproject']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>Add Projects
+        </a>
+       
+      </div>
+    </ul>
+</li></ul>
+<ul class="nav-links c_ul ps-0 mb-0">
+  <li class="li m-0"  (click)="openDrop($event)">
+  <div class="iocn-link">
+    <a routerLink="/salarylist" class="nav-link"><i class="fa fa-money" aria-hidden="true"></i><font [size]="4"></font><b> Salary</b>
+          <i>
+              
+          </i>
+          <span class="link_name" style="margin-left: 4.3rem;">+
+            
+          </span>
+      </a>
+      <i class='bx bxs-chevron-down '></i>
+  </div>
+  <ul class="sub-menu mb-0">
+      <li class="m-0"><a class="link_name"  href="#">Category</a></li>
+      <div class="">
+      <a  [routerLink]="['salarylist']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>All Salary
+      </a>
+      <a [routerLink]="['addsalary']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>Add Salary
+      </a>
+      <a [routerLink]="['monthlysalarylist']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>All Monthly Salary 
+      </a>
+      <a [routerLink]="['monthlysalary']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>Add Monthly Salary
+      </a>
+    
+    </div>
+  </ul>
+</li></ul>
+<ul class="nav-links c_ul ps-0 mb-0">
+  <li class="li m-0"  (click)="openDrop($event)">
+  <div class="iocn-link">
+    <a routerLink="/leavelist" class="nav-link"><i class="fa fa-file-text" aria-hidden="true"></i><font [size]="4"></font><b>Leave  </b>
+          <i>
+              
+          </i>
+          <span class="link_name" style="margin-left: 4.8rem;">+
+            
+          </span>
+      </a>
+      <i class='bx bxs-chevron-down '></i>
+  </div>
+  <ul class="sub-menu mb-0">
+      <li class="m-0"><a class="link_name"  href="#">Category</a></li>
+      <div class="">
+      <a  [routerLink]="['leavelist']" class="nav-link ps-4" *ngIf="roleHR||roleADMIN"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>All Leave Request
+      </a>
+
+      
+      <a [routerLink]="['admin/leavereport']" class="nav-link ps-4"><i class="fa fa-caret-down" aria-hidden="true"></i><font [size]="4"></font>Leave Request</a>
+    </div>
+  </ul>
+ </li>
+</ul>
+
+    <a (click)="logOutUser()" class="nav-link"><i class="fa fa-lock" aria-hidden="true"></i><font [size]="3"><b> Log Out</b></font></a>
+    </div>
+   <router-outlet></router-outlet>

@@ -1,0 +1,165 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head> 
+
+<div class="content" style="margin-top: 60px;">
+
+      <div class="card  mb-3 mt-2" style="max-width: 80rem;background-color:white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+      
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <div class="card-core">
+                       
+              <div class="row">
+               <div class="col-3">
+                 <div class="card text-dark mb-3" style="max-width: 15rem;background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;">
+                   <div class="card-core" style="height: 40px;
+                     text-align:center;color: white;"><b>Total Employees </b></div>
+                
+                <div class="card-body">
+                     <h6 class="card-text" style="text-align: center;color: white;"> <b>{{empData}}</b></h6>
+                     <i class="fa fa-users" aria-hidden="true"></i>
+                  </div>
+                </div>
+                </div>
+                
+              <div class="col-3">
+              
+                <div class="card text-dark  mb-3" style="max-width: 15rem;background: linear-gradient(135deg,#289cf5,#4f8bb7) !important">
+                  <div class="card-core" style="height: 40px;text-align:center;color: white;"><b>Total Projects</b></div>
+                  <div class="card-body">
+                    <h6 class="card-title" style="text-align: center;color:white"><b>{{7}}</b></h6>
+                    <i class="fa fa-window-restore" aria-hidden="true"></i>
+                  </div>
+                </div>
+                </div>
+          
+          
+          
+                <div class="col-3">
+              
+                  <div class="card text-dark  mb-3" style="max-width: 15rem;background: linear-gradient(135deg,#23bdb8 0,#65a986 100%) !important;">
+                    <div class="card-core" style="height: 40px;text-align:center;color: white;"><b>Average Salary</b></div>
+                    <div class="card-body">
+                      <h6 class="card-title" style="text-align: center;color: white;"><b>{{averageData| currency:'INR'}}&#8377;</b>15654</h6>
+                      <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                  </div>
+          
+          
+                  <div class="col-3">
+                     <div class="card text-dark  mb-3" style="max-width: 15rem;background:linear-gradient(135deg,#f48665 0,#d68e41 100%) !important;">
+                      <div class="card-core" style="height: 40px;text-align:center;color: white;"><b>Pending Projects</b></div>
+                    <div class="card-body">
+                      <h6 class="card-title" style="text-align: center;color: white;"><b>0</b></h6>
+                      <i class="fa fa-book" aria-hidden="true"></i>
+    
+                    </div>
+                  </div>
+                </div>
+         
+         </div>
+           <div class="row">
+            <div class="col-6">
+              <div style="height: 320px;overflow: hidden;">
+                
+                <google-chart 
+            [type]="myType" 
+            [data]="myData" 
+            [width]="width"
+            [height]="height" 
+            [title]="'Employees Profile (%)'"
+          
+            >
+          </google-chart>
+              </div>
+        
+  </div>
+  <div class="col-6"> 
+    <div style="height: 320px;overflow: hidden;">
+   <google-chart 
+  [type]="myType" 
+  [data]="myData1" 
+  [width]="width"
+  [height]="height"
+  [title]="'Strength of Male and Female in company'"> 
+  </google-chart>
+  </div>
+  </div>
+  
+  
+  
+      
+          
+            
+          </div>
+          
+        </div>
+      </div>
+      </div>
+      
+     
+  
+  
+  
+  
+  
+          
+    <div class="card">
+        <div class="card-body">
+      <nav class="navbar" style="background-color: rgb(34, 38, 65);" >
+        <div class="container-fluid">
+          <h5 style="color: aliceblue;">All Employee </h5>
+      
+      
+        <div class="input-group" style="width: 300px; margin-left: 600px;">
+      
+              <input mdbInput type="search" class="form-control" placeholder="Search....." id="keywordSearch" name="keywordSearch" #keywordSearch/>
+                  <button type="button" class="btn btn-primary" style="width: 50px;" (click)="search(keywordSearch.value)">
+                    <i class="bi bi-search"></i>
+            </button>
+        </div>
+      
+      
+          
+        </div>
+      </nav>
+  
+      <table class="table  table-bordered">
+      <thead>
+        <tr>
+            <th scope="col">index</th>
+            <th scope="col">First_Name</th>
+            <th scope="col">Last_Name</th> 
+            <th scope="col">Email_Id</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Designation</th>
+            
+            
+        </tr>
+        
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees; let i=index ">
+            
+            <td>{{(pageObject.size*(pageObject.page))+i+1}}</td>
+            <!-- <td ><a style="color:blue;cursor: pointer; text-decoration: none;" routerLink="detailspage/{{employee.employeeId}}" >{{employee.firstName}}</a></td> -->
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.emailId}}</td>
+            <td>{{employee.contact}}</td>
+            <td>{{employee.designation}}</td>
+           
+           
+        </tr>
+      </tbody>
+      
+      </table>
+      <button type="button" (click)= "myFuction('prev',pageObject.page)" style="background-color: rgb(189, 189, 228); border-radius: 15px; margin-left: 30px; margin-top: 15px;" ><</button>
+      <button type="button" (click)= "myFuction('next',pageObject.page)" style="background-color:rgb(189, 189, 228); border-radius: 15px; margin-left: 10px;" >></button>
+    </div>
+  </div>
+  </div>
+  
+  

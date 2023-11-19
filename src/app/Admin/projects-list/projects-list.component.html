@@ -1,0 +1,170 @@
+
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: #ebeae8; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+          
+
+<form>         
+<div class="row" >
+
+<div class="col-4">
+  <label>Project Name</label>
+<input mdbInput type="search" class="form-control"  placeholder="Search....."  name="projectName" #projectName/>
+
+
+</div>
+
+<div class="col-4">
+  <label>Client Name</label>
+<input mdbInput type="search" class="form-control"  placeholder="Search....."   name="clientName" #clientName/>
+
+</div>
+
+<div class="col-4">
+  <label>Project Manager</label>
+<input mdbInput type="search" class="form-control"  placeholder="Search....."  name="projectManager" #projectManager >
+
+</div>
+</div>
+
+
+<div class="row mt-1">
+
+ 
+  
+  <div class="col-4">
+    <label>Team Leader</label>
+  <input mdbInput type="search" class="form-control"  placeholder="Search....."   name="teamLeader" #teamLeader>
+  </div>
+ 
+<div class="col-2 mt-4" style="margin-left: 0px;" >
+  <button type="Submit" class="btn btn-info" style="margin-left: 40px; height: 35px;" (click)="SearchValue(projectName.value,clientName.value,projectManager.value,teamLeader.value)">Search</button>
+</div>
+<div class="col-2 mt-4" style="margin-left: 0px;">
+  <button type="reset" class="btn btn-danger" style="margin-left: px; height: 35px">reset</button>
+</div>
+
+</div>
+</form>
+
+
+
+
+
+
+<!-- <div class="col-5">
+  <label>Team Leader</label>
+<input mdbInput type="search" class="form-control"  placeholder="Search....." id="keywordSearch" name="keywordSearch" #keywordSearch/>
+<button type="button" class="btn btn-primary" style="width: 50px;font-size: 10px !important;" (click)="search(keywordSearch.value)"> 
+   <font [size]=""></font><i class="fa fa-search" aria-hidden="true"></i> 
+ </button> 
+ </div>  -->
+
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 30px; width: 1120px;">
+  <div class="card  mb-3" style="max-width: 80rem;background-color:white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+
+
+
+<nav class="navbar " style="margin-top: 25px; background-color: rgb(34, 38, 65); height: 44px;margin-left: 00px">
+  <div class="container-fluid">
+    <h5 style="color: aliceblue;">All Projects</h5>
+
+    <!-- <div class="input-group" style="width: 300px; margin-left: 00px;">
+      <input mdbInput type="search" class="form-control"  placeholder="Search....." id="keywordSearch" style="height: 29px;" name="keywordSearch" #keywordSearch/>
+          <button type="button" class="btn btn-primary" style="width: 50px;font-size: 10px !important;" (click)="search(keywordSearch.value)">
+         <i class="fas fa-search"></i> <i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+</div> -->
+    <!-- <div class="d.flex">
+      
+      <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success" 
+      style="color:black; background-color: rgb(220, 209, 231);">
+      <a [routerLink]="['../addproject']" class="nav-link">Add Project</a></button>
+    </div>  
+  </div> -->
+  </div>
+</nav>
+
+
+
+<table class="table mt- table-bordered" >
+<thead>
+  <tr>
+      <th scope="col">index</th>
+      <th scope="col">ProjectName</th>
+      <th scope="col">ClientName</th>
+      <!-- <th scope="col">Technologies</th>
+      <th scope="col">Database</th> -->
+      <th scope="col">ProjectManager</th>
+      <th scope="col">TeamLeader</th>
+      <th scope="col">StartingDate</th>
+      <th scope="col">EndingDate</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+      
+  </tr>
+  
+</thead>
+<tbody>
+  <tr *ngFor="let projects of addProjects;let i=index">
+      
+      <td>{{(pageObject.size*(pageObject.page))+i+1}}</td>
+      <td><a style="color:blue;cursor: pointer; text-decoration: none;" routerLink="projectdetailspage/{{projects.projectId}}">{{projects.projectName}}</a></td>
+      <td>{{projects.clientName}}</td>
+      <!-- <td>{{projects.developingTechnology}}</td>
+      <td>{{projects.databaseTechnology}}</td> -->
+      <td>{{projects.projectManager}}</td>
+      <td>{{projects.teamLeader}}</td>
+      <td>{{projects.fromDate}}</td>
+      <td>{{projects.toDate}}</td>
+    
+     <td>
+      <!-- <button class="btn btn-success"   (click) = "updateProject(projects.projectId)"> -->
+         <button class="btn btn-success">
+        <a routerLink="admin/projectlist/{{projects.projectId}}" style="color: white;"><i class="fa fa-edit"></i></a></button> 
+     </td>     
+  
+     <td>
+      <button class="btn btn-danger" (click)="deleteProject(projects.projectId)" style="color: white; background-color: red;"><i class="fa fa-trash"></i></button>
+      </td>
+
+    </tr>
+</tbody>
+
+</table>
+
+<button type="button" (click)= "myFuction('prev',pageObject.page)"     style="background-color: rgb(189, 189, 228); border-radius: 15px; margin-left: 30px; margin-top: 15px;" ><</button>
+<button type="button" (click)= "myFuction('next',pageObject.page)"     style="background-color:rgb(189, 189, 228); border-radius: 15px; margin-left: 10px;">></button>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>

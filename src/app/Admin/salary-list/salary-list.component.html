@@ -1,0 +1,164 @@
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: #ebeae8; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+  
+          <form>         
+            <div class="row" >
+            
+            <div class="col-4">
+              <label>Basic Salary</label>
+            <input mdbInput type="search" class="form-control"  placeholder="Search....."  name="projectName" #basicSalary/>
+            
+            
+            </div>
+              <div class="col-4">
+              <label>Gross Salary</label>
+            <input mdbInput type="search" class="form-control"  placeholder="Search....."   name="clientName" #grossSalary/>
+            </div>
+            
+            <div class="col-2 mt-3">
+              <button type="Submit" class="btn btn-info" style="margin-left: 40px; height: 35px;" (click)="searchFilter(basicSalary.value,grossSalary.value)">Search</button>
+             </div>
+
+             <div class="col-2 mt-3">
+              <button type="reset" class="btn btn-danger" style="margin-left: px; height: 35px">reset</button>
+             </div>
+         
+            </div>
+            
+            
+            <!-- <div class="row mt-1">
+            
+             
+              
+              <div class="col-4">
+                <label>Team Leader</label>
+              <input mdbInput type="search" class="form-control"  placeholder="Search....."   name="teamLeader" #teamLeader>
+              </div> -->
+             
+            <!-- <div class="col-2 mt-4" style="margin-left: 0px;" >
+              <button type="Submit" class="btn btn-info" style="margin-left: 40px; height: 35px;" (click)="SearchValue(projectName.value,clientName.value,projectManager.value,teamLeader.value)">Search</button>
+            </div> -->
+            <!-- <div class="col-2 mt-4" style="margin-left: 0px;">
+              <button type="reset" class="btn btn-danger" style="margin-left: px; height: 35px">reset</button>
+            </div>
+            
+            </div> -->
+            </form>
+
+
+<!-- <div class="row">
+ <div class="col-4">
+  <label>Salary</label>
+<input mdbInput type="search" class="form-control"  placeholder="Search....." id="particularSalary" name="keywordSearch" #particularSalary/>
+<button type="button" class="btn btn-primary" style="width: 50px;font-size: 10px !important;" (click)="getParticularSalay(particularSalary.value)" >
+  <font [size]=""></font><i class="fa fa-search" aria-hidden="true"></i>
+</button>
+</div>
+</div> -->
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 30px; width: 1120px;">
+  <div class="card  mb-3" style="max-width: 80rem;background-color:white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+
+
+
+<nav class="navbar" style="margin-top: 25px; background-color: rgb(34, 38, 65);">
+  <div class="container-fluid">
+    <h5 style="color: aliceblue;">Salary_Page</h5>
+    <!-- <div class="d.flex">
+  
+      <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success" style="color:black; background-color: rgb(220, 209, 231);" >
+        <a [routerLink]="['../addsalary']"  class="nav-link">Add Salary</a></button>
+        <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success" style="color:black; background-color: rgb(220, 209, 231);" >
+          <a [routerLink]="['../monthlysalary']"  class="nav-link">Add Salary Monthly Wise</a></button>
+    </div>   -->
+  </div>
+</nav>
+
+<diV  style="margin-left: px; margin-right: px; width: 1086px;">
+<table class="table mt- table-bordered">
+
+<thead>
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">EmailId</th>
+      <th scope="col">Designation</th>
+      <th scope="col">DearnessAllowance</th>
+      <th scope="col">HouseRentAllowance</th>
+      <th scope="col">BasicSalary</th>
+      <th scope="col">GrossSalary</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+      <!-- <th scope="col">Salary_Slip</th> -->
+    </tr>
+ </thead>
+
+
+<tbody>
+
+  <tr *ngFor="let empSalary of salary; let i=index">
+      <td>{{(pageObject.size*(pageObject.page))+i+1}}</td>
+      <td>{{empSalary.employee.firstName}}</td>
+      <td>{{empSalary.employee.emailId}}</td>
+      <td>{{empSalary.employee.designation}}</td>
+      <td>{{empSalary.dearnessAllowance}}</td>
+      <td>{{empSalary.houseRentAllowance}}</td>
+      <td>{{empSalary.basicSalary}}</td>
+      <td>{{empSalary.grossSalary}}</td>
+     
+  
+     
+     <td>
+      <!-- <button class="btn btn-info" (click) = "updateSalary(empSalary.salaryId)"> -->
+         <!-- <a routerLink="/updatesalary/{/empSalary.salaryId}" style="text-decoration: none;">Edit</a></button> -->
+         <button class="btn btn-success">
+         <a routerLink="admin/salarylist/{{empSalary.salaryId}}" style="color: white;"><i class="fa fa-edit"></i></a></button>
+       </td>
+
+
+       <td> 
+      <button class="btn btn-danger" (click)="deleteSalary(empSalary.salaryId)" style="color: white; background-color: red;"><i class="fa fa-trash"></i></button>
+       </td>
+
+       
+        <!-- <td>
+      <button class=""style="color:black"><a href="http://localhost:4207/api/addsalary/salaryslippdf/{{empSalary.salaryId}}" target="" style="text-decoration: none;"> <i>Salary_Slip</i></a></button>
+      </td> 
+       -->
+    
+    </tr>
+</tbody>
+</table>
+<button type="button" (click)= "myFuction('prev',pageObject.page)" style="background-color: rgb(189, 189, 228); border-radius: 15px; margin-left: 30px; margin-top: 15px;"><</button>
+<button type="button" (click)= "myFuction('next',pageObject.page)" style="background-color: rgb(189, 189, 228); border-radius: 15px; margin-left: 10px;">></button>
+
+
+</diV>
+
+
+</div>
+</div>
+</div>
+</div>

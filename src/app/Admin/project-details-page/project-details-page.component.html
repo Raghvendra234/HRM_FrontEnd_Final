@@ -1,0 +1,159 @@
+
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px;">
+<div class="card  mb-3" style="max-width: 80rem;background-color:white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+
+         
+
+<mat-accordion style="margin-top: 90px;">
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+          <b>  Project</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+
+         <div>
+          <div class="container-fluid mt-0">
+          <table class="table mt-0">
+          <!-- <thead>Employee Details</thead> -->
+            <thead style="background-color: #dbd8d8">
+                <tr>
+                    <th >Project Name</th>
+                    <th >Client Name</th>
+                    <th >Project Manager</th>
+                    <th >Team Leader</th>
+                    <th >Starting Date</th>
+                    <th >Ending Date</th>
+                  </tr>
+            </thead>
+            <tbody>
+             
+              <tr >
+                <td>{{this.projectData.projectName}}</td>
+                <td>{{this.projectData.clientName}}</td>
+                <td>{{this.projectData.projectManager}}</td>
+                <td>{{this.projectData.teamLeader}}</td>
+                <td>{{this.projectData.fromDate}}</td>
+                <td>{{this.projectData.toDate}}</td>
+               
+               
+                
+              </tr>
+          
+            </tbody>
+          </table>
+          </div>
+          
+          </div>
+         </mat-expansion-panel>
+         </mat-accordion>
+         
+        <br>
+    
+          
+         <mat-accordion>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header style="background-color: #f1f1f1">
+                  <mat-panel-title>
+                  <b>Technologies</b>
+                 </mat-panel-title>
+                 </mat-expansion-panel-header>
+               
+                 <div>
+                  <div class="container-fluid mt-0">
+                  <table class="table mt-0">
+                  <!-- <thead style="background-color: #dbd8d8">
+                      <tr>
+                            <th >Technologies</th>
+                      </tr>
+                    </thead> -->
+                    <tbody>
+                        <tr *ngFor="let data of nameOfTechnology">
+                        <td>{{data.technologyName}}</td>
+                        </tr>     
+                    </tbody>
+                  </table>
+                  </div>
+                  
+                  </div>
+                 </mat-expansion-panel>
+                 </mat-accordion>
+               <br>
+                 <mat-accordion>
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header style="background-color: #f1f1f1">
+                          <mat-panel-title>
+                          <b>Databases</b>
+                         </mat-panel-title>
+                         </mat-expansion-panel-header>
+                       
+                         <div>
+                          <div class="container-fluid mt-0">
+                          <table class="table mt-0">
+                          <!-- <thead style="background-color: #dbd8d8">
+                              <tr>
+                                    <th >Technologies</th>
+                              </tr>
+                            </thead> -->
+                            <tbody>
+                                <tr *ngFor="let data of nameOfDatabase">
+                                <td>{{data.databaseName}}</td>
+                                <!-- <td>{{nameOfDatabase[0].databaseName}}</td> -->
+                                </tr>     
+                            </tbody>
+                          </table>
+                          </div>
+                          
+                          </div>
+                         </mat-expansion-panel>
+                         </mat-accordion>
+
+
+                 <br>
+          
+                 <mat-accordion>
+                  <mat-expansion-panel>
+                      <mat-expansion-panel-header style="background-color: #f1f1f1">
+                          <mat-panel-title>
+                          <b>Employee</b>
+                         </mat-panel-title>
+                         </mat-expansion-panel-header>
+                
+                
+                         <div>
+                          <div class="container-fluid mt-0">
+                          <table class="table mt-0">
+                          <!-- <thead>Employee Details</thead> -->
+                            <thead style="background-color: #dbd8d8">
+                                <tr>
+                                    <th >Employee Name</th>
+                                    <th >Profile</th>
+                                    <th >Remark</th>
+                                   
+                                  </tr>
+                            </thead>
+                            <tbody>
+                             
+                              <tr  *ngFor="let data2 of this.nameOfEmployeeOnProject">
+                                <td>{{data2.firstName}}</td>
+                                <td>{{data2.technologies}}</td>
+                                <td>{{data2.remark}}</td>
+                                                  
+                               
+                                
+                              </tr>
+                          
+                            </tbody>
+                          </table>
+                          </div>
+                          
+                          </div>
+                         </mat-expansion-panel>
+                         </mat-accordion>
+                         
+       

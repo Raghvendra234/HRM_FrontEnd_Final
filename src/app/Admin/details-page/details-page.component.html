@@ -1,0 +1,661 @@
+
+
+
+<div class="content" style="margin-left: 210px; margin-top: 60px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: hsl(40, 7%, 92%); height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+
+
+<nav class="navbar" style="margin-top: 25px; background-color: rgb(34, 38, 65); height: 50px; border-radius: 5%;">
+  <div class="container-fluid">
+    <h3 style="color: aliceblue; margin-left: 430px;">Employee Details</h3>
+
+     <div class="d.flex">
+      <button type="button"  data-toggle="modal" data-bs-target="#exampleModal" class="btn bth-success"
+       style="color:black; background-color: rgb(220, 209, 231); margin-left: 0px;" 
+       (click)="openPopup()"> Add Leave</button>
+    </div>  
+
+  </div>
+</nav>
+
+
+
+
+
+<div class="row">
+<div class="col-8">
+</div>
+ <div class="col-2">
+  <label>Upload Image </label>
+  <input type="file" (change)="selectFile($event,employeedetails.employeeId,'image')" name="filePath1" >
+</div>
+<div class="col-2">
+  <label>Upload Resume </label>
+  <input type="file" (change)="selectFile($event,employeedetails.employeeId,'resume')" name="filePath2" >
+</div>
+
+
+
+<div class="content" style="margin-left: 0px; margin-top: 30px; width: 1120px; ">
+  <div class="card  mb-3" style="max-width: 80rem;background-color: white; height: 100%; overflow-y: auto; overflow-x: hidden;" >
+  
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <div class="card-core">
+<div class="container-fluid mt-4">
+  
+  <div style="margin-left: 368px;">
+<img src="http://localhost:4207/api/getfile/{{employeedetails.employeeId}}/{{typeof}}" style="border-radius: 50%;"width="230px" height="170px">
+ 
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<diV class="mt-3">
+  <mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header style="background-color: #f1f1f1">
+            <mat-panel-title>
+            <b> Employee Informations</b>
+           </mat-panel-title>
+           </mat-expansion-panel-header>
+
+<div>
+<div class="container-fluid mt-0">
+<table class="table mt-0">
+<!-- <thead>Employee Details</thead> -->
+  <thead style="background-color: #dbd8d8">
+      <tr>
+          <th >EmpNumber</th>
+          <th >FirstName</th>
+          <th >LastName</th>
+          <th >Date Of Birth</th>
+        </tr>
+  </thead>
+  <tbody>
+   
+    <tr >
+      <td>{{employeedetails.employeeId}}</td>
+      <td>{{employeedetails.firstName}}</td>
+      <td>{{employeedetails.lastName}}</td>
+      <td>{{employeedetails.dateOfBirth}}</td>
+         
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+</div>
+
+
+
+<div class="container-fluid" style="margin-top: 5px;">
+<table class="table mt-0">
+      <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Contact</th>
+           <th >Email_Id</th>
+           <th >Password</th>
+           <th >Gender</th>
+         </tr>
+   </thead>
+   <tbody>
+    
+     <tr >
+       <td>{{employeedetails.contact}}</td>
+       <td>{{employeedetails.emailId}}</td>
+       <td>{{employeedetails.password}}</td>
+       <td>{{employeedetails.gender}}</td>
+     </tr>
+
+   </tbody>
+ </table>
+</div>
+
+
+
+
+<div class="container-fluid " style="margin-top: 5px;">
+<table class="table mt-0">
+     <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Aadhar_Card</th>
+           <th >Pan_Card</th>
+           <th >- - - -</th>
+           <th >- - - -</th>
+        </tr>
+   </thead>
+   <tbody>
+    
+     <tr >
+       <td>{{employeedetails.aadharCard}}</td>
+       <td>{{employeedetails.panCard}}</td>
+       
+     </tr>
+
+   </tbody>
+ </table>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+
+
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+          <b> Designation</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+<div class="container-fluid" style="margin-top:0px;">
+<table class="table mt-0">
+      <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Designation</th>
+           <th >Total Experience</th>
+           <!-- <th >PreviousCompanyName</th> -->
+         </tr>
+   </thead>
+   <tbody>
+    <tr>
+  
+       <td>{{employeedetails.designation}}</td>
+       <td>{{employeedetails.toatalExperience}}</td>
+       <!-- <td>{{employeedetails.previousCompanyName}}</td> -->
+      
+      </tr>
+
+   </tbody>
+ </table>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+<br> 
+
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+          <b>Previous Designation and Experience</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+
+         <!-- {{employeePreviousExperience|json}}<br>
+         {{employeePreviousExperience[0].experience}}
+         {{employeePreviousExperience[0].previousCompanydesignations}}
+         {{employeePreviousExperience[0].previousCompanyName}} -->
+
+
+
+<div class="container-fluid" style="margin-top:0px;">
+<table class="table mt-0">
+      <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Previous Experience</th>
+           <th >Previous Designation</th>
+           <th >Previous CompanyName</th>
+         </tr>
+   </thead>
+   <tbody *ngIf="employeePreviousExperience">
+    <tr *ngFor="let data of employeePreviousExperience">
+       
+        <td>{{data.experience}}</td>
+        <td>{{data.previousCompanydesignations}}</td> 
+        <td>{{data.previousCompanyName}}</td>
+      
+      </tr>
+
+   </tbody>
+ </table>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+<br> 
+
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+          <b>  Bank Details</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+<div class="container-fluid "  style="margin-top: 0px;">
+<table class="table mt-">
+  <!-- <thead>Bank Details</thead> -->
+   <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Bank Name</th>
+           <th >IFSC Code</th>
+           <th >Account Number</th>
+        </tr>
+   </thead>
+   <tbody>
+    <tbody>
+      <tr>
+         <td>{{employeedetails.bankName}}</td>
+         <td>{{employeedetails.cifNumber}}</td>
+         <td>{{employeedetails.accountNumber}}</td>
+       </tr>
+ 
+     </tbody>
+   </table>
+</div>
+
+</mat-expansion-panel>
+</mat-accordion> 
+<br>
+
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+           <b> Qualification</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+<div class="container-fluid " style="margin-top: 0px;">
+<table class="table mt-0">
+  <!-- <thead>Qualification</thead> -->
+   <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Qualification</th> 
+           <th >Course</th>
+           <!-- <th >Board/University</th> -->
+           <th>Percentage</th>
+           <th>Passingyear</th>
+           <th>Status</th>
+       </tr>
+   </thead>
+
+   <tbody>
+       <tr>
+       <td>{{"Master's degree"}}</td>
+         <!-- <td>{{employeedetails.qualification[0].course}}</td> -->
+         <td>{{employeedetails.qualification[0].board}}</td>
+         <td>{{employeedetails.qualification[0].percentage}}</td>
+         <td>{{employeedetails.qualification[0].passingyear}}</td>
+         <td>{{employeedetails.qualification[0].status}}</td>
+       </tr>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <!-- <td>{{employeedetails.qualification[1].qualificationId}}</td> -->
+        <!-- <td>{{employeedetails.qualification[1].course}}</td> -->
+        <td>{{"Bachelor's degree"}}</td>
+        <td>{{employeedetails.qualification[1].board}}</td>
+        <td>{{employeedetails.qualification[1].percentage}}</td>
+        <td>{{employeedetails.qualification[1].passingyear}}</td>
+        <td>{{employeedetails.qualification[1].status}}</td>
+      </tr>
+   </tbody>
+
+   <tbody>
+    <tr>
+      <!-- <td>{{employeedetails.qualification[2].qualificationId}}</td> -->
+      <!-- <td>{{employeedetails.qualification[2].course}}</td> -->
+      <td>{{"Intermediate"}}</td>
+      <td>{{employeedetails.qualification[2].board}}</td>
+      <td>{{employeedetails.qualification[2].percentage}}</td>
+      <td>{{employeedetails.qualification[2].passingyear}}</td>
+      <td>{{employeedetails.qualification[2].status}}</td>
+    </tr>
+ </tbody>
+
+ <tbody>
+  <tr>
+    <!-- <td>{{employeedetails.qualification[3].qualificationId}}</td> -->
+    <!-- <td>{{employeedetails.qualification[3].course}}</td> -->
+    <td>{{"High School"}}</td>
+    <td>{{employeedetails.qualification[3].board}}</td>
+    <td>{{employeedetails.qualification[3].percentage}}</td>
+    <td>{{employeedetails.qualification[3].passingyear}}</td>
+    <td>{{employeedetails.qualification[3].status}}</td>
+  </tr>
+</tbody>
+  
+ </table>
+</div>
+
+</mat-expansion-panel>
+</mat-accordion> 
+
+<br>
+
+
+
+
+<mat-accordion>
+ <mat-expansion-panel>
+    <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+             <b>Addresses</b>
+         </mat-panel-title>
+          </mat-expansion-panel-header>
+     
+
+
+  <div class="container-fluid " > 
+   <table class="table mt-">
+  <!-- <thead>Per Address</thead> -->
+   <thead style="background-color: #dbd8d8">
+       <tr>
+          <th>addressType</th>  
+          <th>HouseNumber</th>
+          <th>City</th>
+          <th>PinCode</th>
+          <th>State</th>
+      </tr>
+   </thead>
+   <tbody>
+        <tr>
+          <td>{{"Per-Address"}}</td>
+          <td>{{employeedetails.address[0].houseNumber}}</td>
+          <td>{{employeedetails.address[0].city}}</td>
+          <td>{{employeedetails.address[0].pinCode}}</td>
+          <td>{{employeedetails.address[0].state}}</td>
+        </tr>
+        <tr>
+          <!-- This Code of current Address-->
+          <td >{{"Cur-Address"}}</td>
+          <td >{{employeedetails.address[1].houseNumber}}</td>
+          <td >{{employeedetails.address[1].city}}</td>
+          <td >{{employeedetails.address[1].pinCode}}</td>
+          <td >{{employeedetails.address[1].state}}</td>
+        </tr>
+   </tbody>
+ </table>
+</div>
+
+</mat-expansion-panel>
+</mat-accordion> 
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+<a href="#" (click)="downloadFile()">Download Resume</a><br/>
+</div>
+ -->
+
+
+<!-- Show Leave-->
+<br>
+<mat-accordion>
+  <mat-expansion-panel>
+      <mat-expansion-panel-header style="background-color: #f1f1f1">
+          <mat-panel-title>
+          <b> Leave Details</b>
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+
+   
+<div class="container-fluid" style="margin-top: 5px;">
+<table class="table mt-">
+      <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >Casual_Leave</th>
+           <th >Sick_Leave</th>
+           <th >Marriage_Leave</th>
+           <th >Maternity_Leave</th>
+         </tr>
+   </thead>
+   <tbody>
+    
+     <tr *ngIf="leftLeave">
+       <td>{{leftLeave.casualLeave}}</td> 
+        <td>{{leftLeave.sickLeave}}</td>
+       <td>{{leftLeave.marriageLeave}}</td>
+       <td>{{leftLeave.maternityLeave}}</td>
+     </tr>
+
+   </tbody>
+
+ </table>
+</div>
+
+
+<div class="container-fluid" style="margin-top: 45px;">
+<table class="table mt-4">
+      <thead style="background-color: #dbd8d8">
+       <tr>
+           <th >PaternityLeave</th>
+           <th >Bereavement_Leave</th>
+           <th >Earned_Leave</th>
+   
+         </tr>
+   </thead>
+   <tbody>
+    
+     <tr *ngIf="leftLeave">
+        <td>{{leftLeave.paternityLeave}}</td>
+       <td>{{leftLeave.bareavementLeave}}</td>
+       <td>{{leftLeave.earnedLeave}}</td> 
+
+     </tr>
+
+   </tbody>
+ </table>
+</div>
+
+</mat-expansion-panel>
+</mat-accordion> 
+
+<br>
+
+
+
+
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+     <mat-expansion-panel-header style="background-color: #f1f1f1">
+           <mat-panel-title>
+              <b>Salary Details</b>
+          </mat-panel-title>
+           </mat-expansion-panel-header>
+      
+           <div class="container-fluid " style="margin-top: 5px;">
+            <table class="table mt-">
+               <thead style="background-color: #dbd8d8">
+                   <tr>
+                      <th>UAN Number</th>  
+                      <th>ESI Code</th>
+                      <th>Basic Salary</th>
+                      <th>House Rent Allowance</th>
+                      <th>Dearness Allowance</th>
+                  </tr>
+               </thead>
+               <tbody>
+                    <tr *ngIf="salaryData">
+                      <td>{{this.salaryData.uanNumber}}</td>
+                      <td>{{this.salaryData.esiCode}}</td>
+                      <td>{{this.salaryData.basicSalary}}</td>
+                      <td>{{this.salaryData.houseRentAllowance}}</td>
+                      <td>{{this.salaryData.dearnessAllowance}}</td>
+                    </tr>
+                   </tbody>
+             </table>
+            </div>
+ 
+
+  
+	
+ <div class="container-fluid " style="margin-top: 45px;">
+ <table class="table mt-">
+    <thead style="background-color: #dbd8d8">
+        <tr>
+           <th>Gross Salary</th>  
+           <th>Provident Fund (%)</th>
+           <th>ESI (%)</th>
+           <th>Health Insurance</th>
+           <th>Childern Education Allowance</th>
+       </tr>
+    </thead>
+    <tbody>
+         <tr *ngIf="salaryData">
+           <td>{{this.salaryData.grossSalary}}</td>
+           <td>{{this.salaryData.pf}}</td>
+           <td>{{this.salaryData.esi}}</td>
+           <td>{{this.salaryData.medicalInsurance}}</td>
+           <td>{{this.salaryData.childrenEducationAllowance}}</td>
+         </tr>
+        </tbody>
+  </table>
+ </div>
+
+
+   
+
+ <div class="container-fluid "style="margin-top: 45px;" >
+  <table class="table mt-">
+     <thead style="background-color: #dbd8d8">
+         <tr>
+            <th>SPL Allowance</th>  
+            <th>Incentives</th>
+            <th>Group Insurance</th>
+            <th>Tax DeductedAtSource</th>
+          
+        </tr>
+     </thead>
+     <tbody>
+          <tr *ngIf="salaryData">
+           
+            <td>{{this.salaryData.splAllowance}}</td>
+            <td>{{this.salaryData.incentives}}</td>
+            <td>{{this.salaryData.groupInsurance}}</td>
+            <td>{{this.salaryData.taxDeductedAtSources}}</td>
+          </tr>
+         </tbody>
+   </table>
+  </div>
+ 
+  
+
+
+    
+ 
+ </mat-expansion-panel>
+ </mat-accordion> 
+ 
+
+
+ 
+
+
+
+
+
+
+
+<!--  Add Leave Code-->
+<div class="modal" tabindex="-1"
+role="dialog"
+[ngStyle]="{'display':displayStyle}" style="background-color:rgb(155, 154, 156);">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h4 class="modal-title" style="padding-left: 160px;">Add Leave</h4>
+</div>
+<div class="modal-body">
+
+<div class="row">
+ <div class="col-md-6 mt-3">
+  <label  for="inputname">Casual_Leave</label>
+  <input type="number" [(ngModel)]="leaveManage.casualLeave" name="casual" class="form-control" >
+  </div> 
+  <div class="col-md-6 mt-3">
+    <label  for="inputname">Sick_Leave</label>
+    <input type="number" [(ngModel)]="leaveManage.sickLeave" name="sick" class="form-control" >
+    </div> 
+ </div>
+ <div class="row">
+  <div class="col-md-6 mt-3">
+   <label  for="inputname">Marriage_Leave</label>
+   <input type="number" [(ngModel)]="leaveManage.marriageLeave" name="marriage" class="form-control" >
+   </div> 
+   <div class="col-md-6 mt-3">
+     <label  for="inputname">Maternity_Leave</label>
+     <input type="number" [(ngModel)]="leaveManage.maternityLeave"  name="maternity" class="form-control" >
+     </div> 
+  </div>
+  <div class="row">
+    <div class="col-md-6 mt-3">
+     <label  for="inputname">Paternity_Leave</label>
+     <input type="number" [(ngModel)]="leaveManage.paternityLeave"  name="paternity" class="form-control" >
+     </div> 
+     <div class="col-md-6 mt-3">
+       <label  for="inputname">Earned_Leave</label>
+       <input type="number" [(ngModel)]="leaveManage.earnedLeave" name="earn" class="form-control" >
+       </div> 
+    </div>
+    <!-- <div class="row">
+      <div class="col-md-6 mt-3">
+       <label  for="inputname">Bereavement_Leave</label>
+       <input type="number" [(ngModel)]="leaveManage.bareavementLeave" name="bareavement" class="form-control" >
+       </div> 
+  
+      </div>  -->
+  
+</div>
+    <div class="modal-footer">
+     <button type="button" class="btn btn-primary" (click)="leaveSubmit()">Save</button>
+       
+    <div class="modal-footer">
+     <button type="button" class="btn btn-danger" (click)="closePopup()">Close</button>
+    </div>
+</div> 
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
